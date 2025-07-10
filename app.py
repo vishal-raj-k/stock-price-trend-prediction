@@ -1,41 +1,39 @@
 import streamlit as st
 import yfinance as yf
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler
-from tensorflow.keras.models import load_model
+import matplotlib.pyplot as plt
 
-# Title
+st.set_page_config(layout="centered")
 st.title("📈 Stock Price Trend Prediction with LSTM")
 st.write("Predict stock trends using deep learning & technical indicators.")
 
-# User input
+# Input stock ticker
 stock = st.text_input("Enter Stock Ticker (e.g., AAPL, TSLA, INFY):", value='AAPL')
 
-if st.button("Predict"):
-    # Fetch data
+if st.button("Get Data & Analyze"):
     df = yf.download(stock, start='2015-01-01', end='2024-12-31')
-    
-    # Show data
+
+    # Flatten column names if MultiIndex
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = [col[0] for col in df.columns]
+
     st.subheader(f"{stock} Closing Price")
     st.line_chart(df['Close'])
 
-    # Add MA & RSI
+    # Moving Average
     df['MA60'] = df['Close'].rolling(window=60).mean()
+    st.subheader("60-Day Moving Average")
+    st.line_chart(df[['Close', 'MA60']])
+
+    # RSI Calculation
     delta = df['Close'].diff()
-    gain = (delta.where(delta > 0, 0)).rolling(14).mean()
-    loss = (-delta.where(delta < 0, 0)).rolling(14).mean()
+    gain = delta.where(delta > 0, 0).rolling(14).mean()
+    loss = -delta.where(delta < 0, 0).rolling(14).mean()
     RS = gain / loss
     df['RSI'] = 100 - (100 / (1 + RS))
     df.dropna(inplace=True)
 
-    # Plot RSI
     st.subheader("RSI Indicator")
     st.line_chart(df['RSI'])
 
-    # Prediction (simplified demo for app)
-    st.subheader("LSTM Model Prediction (Demo)")
-    st.write("Model training & prediction disabled in demo. Full version available in GitHub.")
-
-    st.success("✅ Demo complete. Train model in Jupyter and connect it here for full version.")
