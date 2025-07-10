@@ -43,7 +43,7 @@ This project predicts future stock prices using an LSTM neural network. It also 
 ## 📸 Screenshots
 
 ![RSI](screenshots/Relative Strength Index.png)
-![MA](screenshots/moving_average.png)
+![MA](https://github.com/vishal-raj-k/stock-price-trend-prediction/blob/main/screenshots/Moving%20Average.png)
 
 ---
 
