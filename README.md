@@ -42,7 +42,7 @@ This project predicts future stock prices using an LSTM neural network. It also 
 
 ## 📸 Screenshots
 
-![RSI](screenshots/rsi_plot.png)
+![RSI](screenshots/Relative Strength Index.png)
 ![MA](screenshots/moving_average.png)
 
 ---
