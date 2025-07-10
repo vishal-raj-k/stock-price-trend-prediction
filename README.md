@@ -35,7 +35,7 @@ This project predicts future stock prices using an LSTM neural network. It also 
 
 ## 📄 Report
 
-📥 [Download Report (Word - DOCX)](https://github.com/vishal-raj-k/stock-price-trend-prediction/blob/main/Stock_Trend_Prediction_Report_VishalRaj.docx)
+📥 [Download Report (Word - DOCX)](https://github.com/vishal-raj-k/stock-price-trend-prediction/blob/main/Stock_Trend_Prediction_Report_VishalRaj.docx?raw=true)
 
 
 ---
