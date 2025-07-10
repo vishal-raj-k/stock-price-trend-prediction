@@ -29,7 +29,7 @@ This project predicts future stock prices using an LSTM neural network. It also 
 
 ## 📊 Live Dashboard
 
-👉 [Click to view my Streamlit App](https://ddea86b5-580a-45c7-954f-24cf0a5d3cb7-00-1luhvlh2qhle9.pike.replit.dev/)
+👉 [Click to view my Streamlit App](https://vishal-raj-k-stock-price-trend-prediction-app-0h0iz3.streamlit.app/)
 
 ---
 
